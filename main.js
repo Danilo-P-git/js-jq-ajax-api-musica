@@ -18,18 +18,33 @@ $(document).ready(function() {
   }
   );
 
-function render(results) {
-  var source = $("#cd-template").html();
-  var template = Handlebars.compile(source);
 
-  for (var i = 0; i < results.length; i++) {
-    var album = results[i];
-    var html = template(album);
-
-    $("#list-cd").append(html);
-  }
-}
+  $(".search").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $(".cd").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
 
 
+  $(".select-genre").change(function() {
+    var genereSelezionato = $(this).children("option:selected").val();
+    console.log(genereSelezionato);
+    var filterSearch = $(this).val().toLowerCase();
+    $(".cd").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(filterSearch) > -1)
+    });
+  })
 
+    function render(results) {
+      var source = $("#cd-template").html();
+      var template = Handlebars.compile(source);
+
+      for (var i = 0; i < results.length; i++) {
+        var album = results[i];
+        var html = template(album);
+
+        $("#list-cd").append(html);
+      }
+    }
 });
