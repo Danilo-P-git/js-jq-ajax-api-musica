@@ -47,6 +47,8 @@ header img {
     align-items: center;
     flex-wrap: wrap;
     padding: 100px 0;
+    width: 1200px;
+    margin: auto;
 }
 
 .cd {
@@ -63,6 +65,12 @@ header img {
     text-align: center;
     cursor: pointer;
     transition: background-color 1s
+  }
+  #list-cd {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 .cd:hover {
   background-color: #8f8f8f;
