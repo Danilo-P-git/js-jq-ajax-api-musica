@@ -24,17 +24,17 @@ $(document).ready(function() {
       $(".cd").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
-
     });
 
-  $(".select-genre").change(function() {
-    var genereSelezionato = $(this).children("option:selected").val();
-    console.log(genereSelezionato);
-    var filterSearch = $(genereSelezionato).toLowerCase();
-    $(".cd").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  })
+    $(".select-genre").change(function() {
+      var genereSelezionato = $(this).children("option:selected").val();
+      console.log(genereSelezionato);
+      var filterSearch = $(this).val().toLowerCase();
+      $(".cd").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(filterSearch) > -1)
+      });
+    })
+
   $(".search").keypress(function(e) {
     if (e.which == 13){
       $(".search").val("")
